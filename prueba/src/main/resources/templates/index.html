@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Sistema de Inventario de Videojuegos</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Header con gradiente -->
+    <header class="header-gradient">
+        <h1>🎮 INVENTARIO DE VIDEOJUEGOS</h1>
+        <p>Sistema de Gestión Completo</p>
+    </header>
+
+    <div class="container">
+        <!-- Panel de búsqueda -->
+        <div class="search-panel">
+            <label for="searchInput">🔍 Buscar:</label>
+            <input type="text" id="searchInput" placeholder="Buscar por título, género o plataforma...">
+            <button onclick="buscarVideojuegos()" class="btn btn-accent">Buscar</button>
+            <button onclick="cargarVideojuegos()" class="btn btn-secondary">Mostrar Todo</button>
+        </div>
+
+        <div class="main-content">
+            <!-- Tabla de videojuegos -->
+            <div class="table-container">
+                <table id="videojuegosTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Género</th>
+                            <th>Plataforma</th>
+                            <th>Stock</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        <!-- Los datos se cargarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Panel de formulario -->
+            <div class="form-panel">
+                <h2>📝 GESTIÓN DE VIDEOJUEGOS</h2>
+                
+                <form id="videojuegoForm">
+                    <input type="hidden" id="videojuegoID">
+                    
+                    <div class="form-group">
+                        <label for="titulo">Título del Videojuego:</label>
+                        <input type="text" id="titulo" placeholder="Ej: The Legend of Zelda" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="genero">Género:</label>
+                        <input type="text" id="genero" placeholder="Ej: Aventura, RPG, Acción" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="plataforma">Plataforma:</label>
+                        <input type="text" id="plataforma" placeholder="Ej: PC, PS5, Xbox, Switch" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="stock">Stock Disponible:</label>
+                        <input type="number" id="stock" placeholder="Cantidad en inventario" required min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="precio">Precio (USD):</label>
+                        <input type="number" id="precio" placeholder="Ej: 59.99" required step="0.01" min="0">
+                    </div>
+                    
+                    <div class="button-group">
+                        <button type="button" onclick="cargarVideojuegos()" class="btn btn-accent">🔄 Refrescar Datos</button>
+                        <button type="submit" class="btn btn-success">➕ Agregar Nuevo</button>
+                        <button type="button" onclick="actualizarVideojuego()" class="btn btn-warning" id="btnActualizar" disabled>✏️ Actualizar Selección</button>
+                        <button type="button" onclick="eliminarVideojuego()" class="btn btn-danger" id="btnEliminar" disabled>🗑️ Eliminar Selección</button>
+                        <button type="button" onclick="limpiarFormulario()" class="btn btn-secondary">🧹 Limpiar Formulario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer con información -->
+    <footer class="footer">
+        <span id="contador">📊 Total de registros: 0</span>
+        <span id="estado">Listo</span>
+    </footer>
+
+    <!-- Modal de notificaciones -->
+    <div id="notification" class="notification"></div>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>

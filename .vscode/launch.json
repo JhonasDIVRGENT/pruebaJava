@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-VideojuegoGUI<prueba>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.jhonas.VideojuegoGUI",
+            "projectName": "prueba",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
